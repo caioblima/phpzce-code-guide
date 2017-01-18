@@ -128,7 +128,25 @@
 
 //Paginas para ler
 //http://php.net/manual/pt_BR/language.operators.precedence.php
+// $a = 1;
+// echo $a + $a++; // pode imprimir 2 ou 3
+$i = 1;
+$array[$i] = $i++;
+print_r($array);
 //http://php.net/manual/pt_BR/configuration.file.per-user.php
 //http://php.net/manual/pt_BR/language.control-structures.php)
+// $a = array("a" => "maçã", "b" => "banana");
+// $b = array("a" =>"pêra", "b" => "framboesa", "c" => "morango");
 
-echo  true ? 0 : true ? 1 : 2;
+// $c = $a + $b; // Uniao de $a e $b
+// echo "União de \$a e \$b: \n";
+// var_dump($c);
+
+// $c = $b + $a; // União de $b e $a
+// echo "União de \$b e \$a: \n";
+// var_dump($c);
+
+// $a += $b; // União de $a += $b é $a e $b
+// echo "União de \$a += \$b: \n";
+// var_dump($a);
+
