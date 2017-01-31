@@ -155,6 +155,50 @@
 //         'string'
 // ]);
 //fprintf - escrever em um file
-$file = fopen(getcwd() . '/meu-arquivo.txt',  'w+');
-fprintf($file,  'Olá  %s  ',  'PHP');
-?>
+// $file = fopen(getcwd() . '/meu-arquivo.txt',  'w+');
+// fprintf($file,  'Olá  %s  ',  'PHP');
+
+//Regex
+//preg_match - ao dar match no resultado ja retorna. é mais otimizada que preg_match_all
+// preg_match('/[^abc]+/', 'efg', $matches);
+// print_r($matches);
+
+//preg_match_all - performa a regex na string inteira retornando quantos matchs baterem
+// $text  = 'Livro  de  certificação  PHP,  outro Livro';
+// $pattern = '/Livro/';
+// preg_match_all($pattern, $text, $matches);
+// print_r($matches);
+
+//preg_replace - troca uma string de acordo com uma regex informada a backreference 0 é o match todo, se houve parenteses nas regex cada subsequente tera seu indice na backreference
+// $var = preg_replace('/0+(?=[1-9])/', '', '0001');
+// echo $var;
+// $texto = 'Vamos  aplicar uma expressão aqui!';
+// print preg_replace(['/aqui/', '/!/'], '?',  $texto);
+// $texto  = 'O  evento  será  dia 11/12 não perca a reprize no  dia 22/10';
+// print preg_replace('/\/\d{2}/', '${1}', $texto);
+//Exemplo com backreference
+// $div = '<div class="grosa"> grosa da porra</div>';
+// echo preg_replace('/<div[^>]+/', '${0} style="overflow:hidden;"', $div);
+// $texto  = '!Vamos aplicar uma expressão aqui!';
+// $total  = 0;
+// preg_replace('/!/', '', $texto, -1, $total);
+// print $total;
+// $string = 'abcda';
+// $procurar     = 'a';
+// $pos  = strpos($string, $procurar);
+// if  (!$pos) {
+//         echo  "não  encontrei";
+// }
+// else  {
+//         echo  "encontrei  " . $pos;
+// }
+// $foo  = strpos("I can see two monkeys.",  '116');
+// print $foo;
+
+// $string = 'Hello  World';
+
+// for ($i = 0;  $i  < strlen($string);  $i++) {
+//         print $string[$i];
+// }
+
+//ver hex2bin,  bin2hex ,   htmlentities  ,   nl2br - http://php.net/manual/pt_BR/ref.strings.php.
