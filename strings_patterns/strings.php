@@ -103,9 +103,58 @@
 // var_dump($pieces);
 
 //implode - transforma um array em string
-$haystack = [
-  'grosa',
-  'da',
-  'porra'
-];
-var_dump(implode('-', $haystack));
+// $haystack = [
+//   'grosa',
+//   'da',
+//   'porra'
+// ];
+// var_dump(implode('-', $haystack));
+
+//substr e substr_replace
+// $var = 'ABCDEFGH:/MNRPQR/';
+// echo "Original: $var<hr />\n";
+//  Estes dois exemplos substituem 'MNRPQR' em $var com 'bob'. 
+// echo substr_replace($var, 'bob', -7, -1) . "<br />\n";
+// echo substr('abcdef', -4, -2);
+
+//printf - mostra uma string formatada de acordo com os tokens fornecidos - http://php.net/manual/pt_BR/function.printf.php
+//sprintf tem o mesmo comportamento, porém ele retorna a string e não printa a não ser que você a use
+// Troca de parametros
+// printf('Certificação  %2s  PHP %1s',  'Zend', '5.5');
+//formatando precisao
+// $money1 = 68.75;
+// $money2 = 54.35;
+// $money = $money1 + $money2;
+// // echo $money irá mostrar "123.1";
+// $formatted = sprintf("%.2f", $money);
+// echo $formatted;
+
+//padding examples
+// $s = 'monkey';
+// $t = 'many monkeys';
+
+//O padrão é preencher com espaços se só passar um numero maximo que a string deve ter e para 0 o mesmo caso, se for outro caractere diferente disso passe uma aspas simples antes
+// printf("[%s]\n",      $s); // standard string output
+// printf("[%10s]\n",    $s); // right-justification with spaces (preenche a esquerda)
+// printf("[%-10s]\n",   $s); // left-justification with spaces (preenche a direita)
+// printf("[%010s]\n",   $s); // zero-padding works on strings too
+// printf("[%'#10s]\n",  $s); // use the custom padding character '#'
+// printf("[%10.10s]\n", $t); // left-justification but with a cutoff of 10 characters
+
+//vprintf - printa uma string formata com parametros de troca passados em array
+// $a = vprintf('Certificação %s  %s',  [
+//         'PHP',
+//         '5.5'
+// ]);
+// var_dump($a);
+
+//vsprintf - faz o mesmo que sprintf porém seguiindo o padrão de parametros da vprintf
+// echo  vsprintf('Utilizando  %s  conseguimos %s  a %s  formatada', [
+//         'echo',
+//         'exibir',
+//         'string'
+// ]);
+//fprintf - escrever em um file
+$file = fopen(getcwd() . '/meu-arquivo.txt',  'w+');
+fprintf($file,  'Olá  %s  ',  'PHP');
+?>
