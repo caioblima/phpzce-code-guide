@@ -96,25 +96,25 @@
 // }
 
 //Mais exemplos
-$xml  = '
-<biblioteca>
-  <estante  identificador="draophp">
-    <livro  id="1">
-            <nome>PHP</nome>
-            <descricao>Aprenda  PHP</descricao>
-    </livro>
-    <livro  id="2">
-            <nome>Zend  framework</nome>
-            <descricao>Como utilizar  o Zend  framework</descricao>
-    </livro>
-  </estante>
-  <estante  identificador="D1">
-    <livro  id="5">
-            <nome>Bitwise</nome>
-            <descricao>Manipulação  de  bitwise para  ninjas</descricao>
-    </livro>
-  </estante>
-</biblioteca>';
+// $xml  = '
+// <biblioteca>
+//   <estante  identificador="draophp">
+//     <livro  id="1">
+//             <nome>PHP</nome>
+//             <descricao>Aprenda  PHP</descricao>
+//     </livro>
+//     <livro  id="2">
+//             <nome>Zend  framework</nome>
+//             <descricao>Como utilizar  o Zend  framework</descricao>
+//     </livro>
+//   </estante>
+//   <estante  identificador="D1">
+//     <livro  id="5">
+//             <nome>Bitwise</nome>
+//             <descricao>Manipulação  de  bitwise para  ninjas</descricao>
+//     </livro>
+//   </estante>
+// </biblioteca>';
 // $document  = new DOMDocument();
 // $document->loadXML($xml);
 // $xpath  = new DOMXpath($document);
@@ -123,3 +123,40 @@ $xml  = '
 //Pega somente livros da estante do Drão
 // $element = $xpath->query('//biblioteca/estante[@identificador="draophp"]//livro');
 // print_r($element);
+
+//Xpath no simplexml
+// $texto  = '
+// <biblioteca>
+//   <livro  id="1">
+//     <nome>PHP</nome>
+//     <descricao>Aprenda  PHP</descricao>
+//   </livro>
+//   <livro  id="2" class="drão">
+//     <nome>PHP</nome>
+//     <descricao>Aprenda PHP com o Drão</descricao>
+//   </livro>
+// </biblioteca>';
+// $xml  = simplexml_load_string($texto);
+// $elementos  = $xml->xpath("/biblioteca/livro[contains(@class, 'drão')]");
+// print_r($elementos);
+
+//Json encode geralmente passamos arrays (indexados ou associativos) ou objeto, se passar objeto os valores só são encodados se for em propriedade publica, se for protegida, privada ou uma constante, os dados nao sao encodados 
+// class test {
+//   public $a = 1;
+//   public $b = 2;
+//   public $c = 3;
+//   const CARAI = 4;
+// }
+// $jsonTest = new test();
+// print json_encode($jsonTest);
+// print json_encode([
+//   'zcpe'  =>  [
+//     'a' => 'basico <> "',
+//     'b' => 'avancado',
+//     'c' => ['drao' => 'monster', 'zica' => 'do pantano'],
+//     'd' => ['malanderssan', 'dos objetos', 'a' => ['1']]
+//   ]
+// ], JSON_HEX_QUOT | JSON_HEX_TAG, 4);
+
+//json decode - retorna um objeto se o segundo parametro nao for passado como true, se o segundo parametro for true retorna um array associativo
+// print_r(json_decode('{"zcpe":{"a":"basico \u003C\u003E \u0022","b":"avancado","c":{"drao":"monster","zica":"do pantano"}}}', false));
