@@ -9,6 +9,6 @@ What is the purpose of this guide? When you're studing for the certification, th
 Being updated to PHP 7 soon.**
 
 Which topics do we have today? 
-*[PHP Basics](php-basics)
-*[Strings & Patterns](strings_patterns)
-*[Data Format & Types](xml-json-html)
+[PHP Basics](php-basics)
+[Strings & Patterns](strings_patterns)
+[Data Format & Types](xml-json-html)
