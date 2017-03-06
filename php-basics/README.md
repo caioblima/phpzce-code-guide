@@ -25,8 +25,18 @@ Special Types:
     
     resource - external resources that are not natively of PHP like file handling, image manipulation.
     null - indicate variable that has no value and has set to the special value NULL or if the value hasn't been set on the variable.
+    
+# Variables
+```php
+//Store a value
+$carOneValue = 1;
+/* Reference carOneValue variable to the new $carOneValueReference.*/
+$carOneValueReference = &$carOneValueReference;
+//Change value to the two variables
+$carOneValueReference = 100.80
+```
 
-# Converting data types
+# Converting data types (Type Casting)
 ```php
 $a = 1;
 $a = (string) $a;
