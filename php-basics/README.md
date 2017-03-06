@@ -52,3 +52,4 @@ function foo($bar) { }
 * $var name and function foo bar())
 * Heredoc and Nowdoc closing identifiers must not be preceded by
 * anything, including whitespace.
+* [Data Format & Types](xml-json-html)
