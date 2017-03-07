@@ -36,6 +36,36 @@ $carOneValueReference = &$carOneValueReference;
 $carOneValueReference = 100.80
 ```
 
+# Variable variables
+```php
+$myVar = 'someValue';
+$$myVar = 'anotherValue';
+echo $someValue; //prints anotherValue
+```
+
+# Variables as reference
+```php
+$carOneValue = 1;
+function sumCarValue(&$carValue, $plusValue = 0) {
+  return $carValue = $carValue + $plusValue;
+}
+sumCarValue($carOneValue, 1000);
+var_dump($carOneValue);
+```
+# Check if variable exists
+```php
+if (isset($someVar)) {
+    //she exists
+} else {
+    //She didn't exists
+}
+
+//or check directly, i recommend avoid using 'else' as possibe in PHP
+if (!isset($someVar)) {
+    //she didn't exist
+}
+```
+
 # Converting data types (Type Casting)
 ```php
 $a = 1;
@@ -47,6 +77,16 @@ $b = (int) $b;
 $c = '10.82';
 $c = (float) $c;
 ```
+
+**There are some functions to cast types if you prefer, see in the table below:**
+
+| Tag | Description |
+| ------ | ------ |
+| intval() | Cast the given variable to an integer |
+| floatval() | Cast the given variable to a float |
+| strval() | Cast the given variable to a strin |
+| boolval() | Cast the given variable to a boolean |
+| settype() | Cast the given variable to a given type |
 
 # Comment types
 ```php
@@ -122,4 +162,29 @@ __CLASS__;
 __TRAIT__;
 __METHOD__;
 __NAMESPACE__;
+```
+
+# Language operators
+Assignment operator:
+```php
+$var = 1;
+$var2 = ++$var;
+```
+Arithmetic operator:
+```php
+$plus = 2 + 2;
+$minus = 2 - 2;
+$multiplication = 2 * 2;
+$division = 2 / 2;
+$mod = 2 % 2;
+```
+Referencing values:
+```php
+$a = 1;
+$b = &$a;
+```
+
+Bitwise operator
+```php 
+$a = ~1; //0
 ```
