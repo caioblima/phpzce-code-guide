@@ -184,7 +184,34 @@ $a = 1;
 $b = &$a;
 ```
 
-Bitwise operator
-```php 
+Bitwise operator:
+**With sprintf with leading zeros on the left and decbin, we can check the binary value of our two to check bits that are active or not and sum the result accoding to which operator we're using**
+
+```php
+// NOT - OPERATOR
 $a = ~1; //0
+// AND - Share the same bit active  
+$a = 8;
+$b = 10;
+echo sprintf('%08s', decbin($a));
+echo '<br>';
+echo sprintf('%08s', decbin($b));
+echo '<br>';
+echo $a & $b; //8
+//OR - OPERATOR
+$a = 9;
+$b = 10;
+echo sprintf('%08s', decbin($a));
+echo '<br>';
+echo sprintf('%08s', decbin($b));
+echo '<br>';
+echo $a | $b; //11
+//XOR - OPERATOR
+$a = 9;
+$b = 10;
+echo sprintf('%08s', decbin($a));
+echo '<br>';
+echo sprintf('%08s', decbin($b));
+echo '<br>';
+echo $a ^ $b; //3
 ```

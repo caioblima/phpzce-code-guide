@@ -33,8 +33,8 @@ null
 // $a  = 'By Value';
 // $b  = &$a;  //  By reference
 // $b  = 'What now?';
-// print $a; //  E agora ?
-// print $b; //  E agora ?
+// print $a; 
+// print $b;
 
 // //operadores aritméticos
 // $soma = 10  + 10; //  20
