@@ -1,29 +1,15 @@
-# README #
+# PHP Zend Certified Engineer Code Guide
 
-This README would normally document whatever steps are necessary to get your application up and running.
+[![Just Digital](logo_just.png)](https://justdigital.com.br/)
 
-### What is this repository for? ###
+What is the purpose of this guide? When you're studing for the certification, this guide is intended for you, to run, test, see what you're reading in action. If you didn't se something in the guide, fork the project, update the project, open a pull request to us.
+**Remember, this guide is only for code guide, the massive technical side will be on the book you're reading.**
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+#Version Covered
+**5.6.** 
+**Being updated to PHP 7 soon.**
 
-### How do I get set up? ###
-
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+# Which topics do we have today? 
+* [PHP Basics](php-basics)
+* [Strings & Patterns](strings_patterns)
+* [Data Format & Types](xml-json-html)

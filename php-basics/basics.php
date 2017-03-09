@@ -1,29 +1,38 @@
 <?php
 //PHP tags
-//<?php
-//<? - short tag - sempre ativa apos 5.4.0
-// <script type="php">
-//<?= - sempre ativo - segunda short open tag
+/* 
+<?php ?>
+<?  short tag ?> - Only active by the php.ini short_open_tags activated
+<script type="php"> - Removed on PHP 7
+<?= - sempre ativo - segunda short open tag ?>
+<% echo 'some value, some var' %>
+<%= $variable; %> - A shorthand to <% echo $variable; %>
+The last two Examples was removed on PHP 7
+*/
 
 //Strings
-// aspas simples valor full literal
-//duplas faz o parser em variavel
+/* 
+Single quote only literal values
+Double quotes can interpolate variables and treat her as value to string
+*/
 
 //Scalar types 
-//integer
-//boolean
-//float
-//string
-//Compound
-//array
-//object
+/*
+integer
+boolean
+float
+string
+Compound
+array
+object
 //Other types
-//resource
-//null
-
-// $a  = 'Por  valor';
-// $b  = &$a;  //  Criando a referência  para  $a
-// $b  = 'E  agora ?';
+resource
+null
+*/
+//Variable value assignment
+// $a  = 'By Value';
+// $b  = &$a;  //  By reference
+// $b  = 'What now?';
 // print $a; //  E agora ?
 // print $b; //  E agora ?
 
@@ -130,9 +139,9 @@
 //http://php.net/manual/pt_BR/language.operators.precedence.php
 // $a = 1;
 // echo $a + $a++; // pode imprimir 2 ou 3
-$i = 1;
-$array[$i] = $i++;
-print_r($array);
+// $i = 1;
+// $array[$i] = $i++;
+// print_r($array);
 //http://php.net/manual/pt_BR/configuration.file.per-user.php
 //http://php.net/manual/pt_BR/language.control-structures.php)
 // $a = array("a" => "maçã", "b" => "banana");
