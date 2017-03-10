@@ -215,3 +215,48 @@ echo sprintf('%08s', decbin($b));
 echo '<br>';
 echo $a ^ $b; //3
 ```
+Bitwise multiplication & division:
+```php
+//Multiplication by the power of 2
+$x = 2;
+echo $x << 1; // Outputs 4
+echo $x << 2; // Outputs 8
+//Division by the power of 2
+$x = 4;
+echo $x >> 1; // Outputs 2
+echo PHP_EOL;
+echo $x >> 2; // Outputs 1
+```
+
+# Assignment operator
+```php
+$a = 'by value';
+$b = &$a;
+echo $a;
+echo PHP_EOL; //php end of line constant
+echo $b;
+echo PHP_EOL;
+$b = 'Changed value in the reference variable';
+echo $a;
+echo PHP_EOL;
+echo $b;
+```
+
+# Comparison operators
+```php
+//Equivalence
+'a' == 'b' //false
+'1' == '1' //true
+//Identity
+'a' === 'b' //false
+1 === '1' //false
+1 === 1 //true
+//Not equivalent
+'a' != 'b' //true
+'1' != '1' //false
+// Not identical
+'a' !== 'b' //true
+'a' !== 'a' //false
+1 !== '1' //true
+1 !== 1 //false
+```
