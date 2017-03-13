@@ -312,3 +312,86 @@ Backticks:
 $output = `ls -al`;
 echo "<pre>$output</pre>";
 ```
+
+# Error control operators
+```php
+x = @fopen("/tmp/foo"); //Ignore default error messages
+```
+
+# String operators
+Concatenation:
+```php
+$a = 'Studing';
+$b = 'ZCE';
+echo $a .' '. $b;
+```
+Concatenating assignment:
+```php
+$a = 'Studing';
+$a .= ' ZCE';
+echo $a;
+```
+
+# Array operators
+Union:
+```php
+$a = ['one' => 1, 'two' => 2];
+$b = ['one' => 2, 'two' => 4, 'three' => 3];
+print_r($a + $b);
+print_r($a += $b);
+```
+Equality:
+```php
+$a = ['one' => '1', 'two' => 2];
+$b = ['one' => 1, 'two' => 2];
+print_($a == $b); //true
+print_($a === $b); //false
+```
+Inequality:
+```php
+$a = ['one' => '1', 'two' => 2];
+$b = ['one' => 1, 'two' => 2];
+print_($a != $b); //false
+print_($a <> $b); //false
+```
+Non-indentity:
+```php
+$a = ['one' => '1', 'two' => 2];
+$b = ['one' => 1, 'two' => 2];
+print_($a !== $b); //true
+```
+Type operators:
+```php
+class A {}
+class B extends A {}
+class C {}
+$b = new B;
+$c = new C;
+var_dump($b instanceof B); //Instance of A either B
+var_dump($c instanceof A); //false
+```
+
+# Control structures
+If then else:
+```php
+if (exp1) {
+    //some code
+} elseif (exp2) {
+    //some code
+} else {
+    //some code
+}
+```
+Nested if then else:
+```php
+if ($omething) {
+  //some code
+  if ($somethingElse) {
+    //some code
+  } else {
+    //some code
+  }
+} else {
+  //some code
+}
+```
