@@ -243,20 +243,72 @@ echo $b;
 ```
 
 # Comparison operators
+Equivalence:
 ```php
-//Equivalence
 'a' == 'b' //false
 '1' == '1' //true
-//Identity
+```
+Identity:
+```php
 'a' === 'b' //false
 1 === '1' //false
 1 === 1 //true
-//Not equivalent
+```
+Not equivalent:
+```php
 'a' != 'b' //true
 '1' != '1' //false
-// Not identical
+```
+Not identical:
+```php
 'a' !== 'b' //true
 'a' !== 'a' //false
 1 !== '1' //true
 1 !== 1 //false
+```
+Less than and less & equals to:
+```php
+15 <= 15 //true
+15 < 15 //false
+15 < 16 //true
+```
+Greater than and greater & equals:
+```php
+15 >= 15 //true
+15 > 15 //false
+16 > 15 //true
+```
+Spaceship operator:
+```php
+1 <=> 1 //0
+1 <=> 2 //-1
+2 <=> 1 //1
+```
+
+# Binary operators
+```php
+And:
+$a = 1;
+$b = 2;
+$a === 1 && $b === 2 //true if both are true
+$a === 1 and $b === 3 //false if both are true, the change here is operator precedence
+```
+Not:
+```php
+var_dump(!a) //false
+//Or
+$a === 1 || $b === 3 //true if any of expressions evaluate to true
+$a === 2 or $b === 2 //true if any of expressions evaluate to true, the change here is operator precedence
+```
+Xor:
+```php
+$a === 1 xor $b === 3 //true if only one of expressions evaluate to true
+$a === 1 xor $b === 2 //false if only one of expressions evaluate to true, the change here is operator
+```
+
+# Execution operators
+Backticks:
+```php
+$output = `ls -al`;
+echo "<pre>$output</pre>";
 ```
