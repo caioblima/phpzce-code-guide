@@ -395,3 +395,54 @@ if ($omething) {
   //some code
 }
 ```
+Ternary:
+```php
+$queryParamsArray = (isset($_GET['q'])) ? explode('&', $_GET['q']) : false;
+print_r($queryParamsArray);
+```
+Switch:
+```php
+$a = ['one' => '1', 'two' => '2'];
+switch ($a) {
+  case 'one':
+    # code...
+    break;
+  case 'two':
+    # code...
+    break;
+  default:
+    # code...
+    break;
+}
+```
+Foreach:
+```php
+$a = ['one' => '1', 'two' => '2'];
+//Lopp keys and values
+foreach ($variable as $key => $value) {
+  if ($key === 'one') {
+  	echo 'Exited on one';
+  	break;
+  }
+}
+//Loop only values
+foreach ($variable as $value) {
+  # code...
+}
+```
+For:
+```php
+for ($i=0; $i < 10; $i++) { 
+  if ($i === 6) {
+    continue;
+  }
+    echo $i; //012345789
+}
+```
+While:
+```php
+$i = 1;
+while ($i <= 10) {
+  echo $i++;
+}
+```
