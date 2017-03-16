@@ -1,5 +1,7 @@
 # PHP Basics
+
 This topic we'll show the basic and the language essentials to start and app with PHP. PHP is intented to provide simplicity in development process.
+
 [Code examples](code)
 
 # PHP tags
