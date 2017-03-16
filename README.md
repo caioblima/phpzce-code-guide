@@ -165,6 +165,7 @@ __NAMESPACE__;
 ```
 
 # Language operators
+**Bear in mind to check operator precende in [PHP Manual.](https://secure.php.net/manual/pt_BR/language.operators.precedence.php)**
 Assignment operator:
 ```php
 $var = 1;
@@ -228,7 +229,7 @@ echo PHP_EOL;
 echo $x >> 2; // Outputs 1
 ```
 
-# Assignment operator
+Assignment operator:
 ```php
 $a = 'by value';
 $b = &$a;
@@ -283,6 +284,11 @@ Spaceship operator:
 1 <=> 1 //0
 1 <=> 2 //-1
 2 <=> 1 //1
+```
+Null Coalescing operator
+```php
+$a = ['a' => 1, 'b' => 3];
+$two = $a['2'] ?? '2';
 ```
 
 # Binary operators
