@@ -140,7 +140,7 @@
 // $elementos  = $xml->xpath("/biblioteca/livro[contains(@class, 'drão')]");
 // print_r($elementos);
 
-//Json encode geralmente passamos arrays (indexados ou associativos) ou objeto, se passar objeto os valores só são encodados se for em propriedade publica, se for protegida, privada ou uma constante, os dados nao sao encodados 
+//Json encode geralmente passamos arrays (indexados ou associativos) ou objeto, se passar objeto os valores só são encodados se for em propriedade publica, se for protegida, privada ou uma constante, os dados nao sao encodados, as flags tem a url do manual para seguir e o depth é o tanto de associatividade pode-se ter
 // class test {
 //   public $a = 1;
 //   public $b = 2;
