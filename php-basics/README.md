@@ -1,6 +1,9 @@
 # PHP Basics
 This topic we'll show the basic and the language essentials to start and app with PHP. PHP is intented to provide simplicity in development process.
 
+# Code Examples
+[Here](code)
+
 # PHP tags
 
 | Tag | Description | Enabled by |
@@ -165,10 +168,19 @@ __NAMESPACE__;
 ```
 
 # Language operators
+**Bear in mind to check operator precende in [PHP Manual.](https://secure.php.net/manual/pt_BR/language.operators.precedence.php)**
 Assignment operator:
 ```php
-$var = 1;
-$var2 = ++$var;
+$a = 'by value';
+$b = &$a;
+echo $a;
+echo PHP_EOL; //php end of line constant
+echo $b;
+echo PHP_EOL;
+$b = 'Changed value in the reference variable';
+echo $a;
+echo PHP_EOL;
+echo $b;
 ```
 Arithmetic operator:
 ```php
@@ -228,20 +240,6 @@ echo PHP_EOL;
 echo $x >> 2; // Outputs 1
 ```
 
-# Assignment operator
-```php
-$a = 'by value';
-$b = &$a;
-echo $a;
-echo PHP_EOL; //php end of line constant
-echo $b;
-echo PHP_EOL;
-$b = 'Changed value in the reference variable';
-echo $a;
-echo PHP_EOL;
-echo $b;
-```
-
 # Comparison operators
 Equivalence:
 ```php
@@ -284,10 +282,15 @@ Spaceship operator:
 1 <=> 2 //-1
 2 <=> 1 //1
 ```
+Null Coalescing operator
+```php
+$a = ['a' => 1, 'b' => 3];
+$two = $a['2'] ?? '2';
+```
 
 # Binary operators
-```php
 And:
+```php
 $a = 1;
 $b = 2;
 $a === 1 && $b === 2 //true if both are true
@@ -395,3 +398,57 @@ if ($omething) {
   //some code
 }
 ```
+Ternary:
+```php
+$queryParamsArray = (isset($_GET['q'])) ? explode('&', $_GET['q']) : false;
+print_r($queryParamsArray);
+```
+Switch:
+```php
+$a = ['one' => '1', 'two' => '2'];
+switch ($a) {
+  case 'one':
+    # code...
+    break;
+  case 'two':
+    # code...
+    break;
+  default:
+    # code...
+    break;
+}
+```
+Foreach:
+```php
+$a = ['one' => '1', 'two' => '2'];
+//Lopp keys and values
+foreach ($variable as $key => $value) {
+  if ($key === 'one') {
+    echo 'Exited on one';
+    break;
+  }
+}
+//Loop only values
+foreach ($variable as $value) {
+  # code...
+}
+```
+For:
+```php
+for ($i=0; $i < 10; $i++) { 
+  if ($i === 6) {
+    continue;
+  }
+    echo $i; //012345789
+}
+```
+While:
+```php
+$i = 1;
+while ($i <= 10) {
+  echo $i++;
+}
+```
+
+# Namespaces
+This is better check files in [Namespaces section](php-basics/code/namespaces)
