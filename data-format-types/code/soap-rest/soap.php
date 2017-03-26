@@ -8,7 +8,7 @@ $client->__getFunctions();
 //Call a webservice method as an SoapObject Method
 $methodParams = ['someData'];
 $client->doSomething($methodParams);
-//Call a webservice method as method from SoapClient Class
+//Call a webservice method as a method from SoapClient Class
 $result = $client->__soapCall("doSomething", $methodParams, ['uri' => 'alternate-uri'], $soapHeaders = null, $output_headers);
 //If trace is true get returned response
 $result = $client->getLastResponse();
