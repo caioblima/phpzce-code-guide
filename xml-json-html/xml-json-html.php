@@ -1,43 +1,4 @@
 <?php
-//XML
-//simple xml load string - http://php.net/manual/pt_BR/libxml.constants.php
-//  simplexml_load_file segue as mesmas regras da string a diferenca é quye uma carrega de string e outra carrega por arquivo
-// class MeuSimplesXml extends SimpleXMLElement  {}
-// $meuXML = '<root/>';
-// $xml = simplexml_load_string($meuXML,  'MeuSimplesXml', LIBXML_VERSION, 'namespace');
-// print_r($xml);
-
-//Class SimpleXMLEelement
-// $meuXml = <<<XMLDATA
-// <zce>
-//   <basico>
-//       <sintaxe>
-//         PHP tags, Bitwise
-//       </sintaxe>
-//   </basico>
-// </zce>
-// XMLDATA;
-// $meuXml  = new SimpleXMLElement($meuXml);
-// $meuXml->addChild('teste', 'testeval');
-// print_r($meuXml);
-//http://php.net/manual/en/refs.xml.php
-
-//Dom Document - http://php.net/manual/en/book.dom.php
-//Carregando um arquivo xml
-// $load = new DOMDocument();
-// $load->load('/caminho/para/arquivo/meu.xml');
-//Carregando html por string
-// $loadHtml = new DOMDocument();
-// $loadHtml->loadHTML('<html><p>Hello</p><br></html>');
-// print_r($loadHtml->documentElement);
-//Carregando arquivo html
-// $loadHtmlFile = new DOMDocument();
-// $loadHtmlFile->loadHTMLFile('/caminho/para/arquivo/meu.html');
-//Carregando xml por string
-// $loadString = new DOMDocument();
-// $loadString->loadXML('<root><nome>PHP</nome></root>');
-// print_r($loadString->getElementsByTagName('nome')->item(0));
-
 //Convertendo domdocument para simplexmlelement
 // $no = new DOMDocument();
 // $meuXml = <<<XMLDATA
