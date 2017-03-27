@@ -6,8 +6,7 @@ What is the purpose of this guide? When you're studing for the certification, th
 **Remember, this guide is only for code guide, the massive technical side will be on the book you're reading.**
 
 #Version Covered
-**5.6.** 
-**Being updated to PHP 7 soon.**
+**7** 
 
 # Which topics do we have today? 
 * [PHP Basics](php-basics)
