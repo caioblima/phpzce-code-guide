@@ -7,10 +7,10 @@ This topic we'll show the basic and the language essentials to start and app wit
 # PHP tags
 
 ```php
-<?php ?> - Standard Tags, enabled by default
+/*<?php ?> - Standard Tags, enabled by default
 <?= ?> - Echo Tags, Default PHP 5.4+
 <? ?> - Short Tags, PHP Ini option - Default off
-<% %> - ASP Tags, PHP Ini option - Default off, Removed on PHP 7.0
+<% %> - ASP Tags, PHP Ini option - Default off, Removed on PHP 7.0*/
 ```
 
 # Data Types
