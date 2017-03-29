@@ -6,14 +6,12 @@ This topic we'll show the basic and the language essentials to start and app wit
 
 # PHP tags
 
-this is the php test tag <?php ?>
-
-| Tag | Description | Enabled by |
-| ------ | ------ | ------ |
-| <?php ?> | Standard Tags | Default |
-| <?= ?> | Echo Tags - Prints result of an expression | Default PHP 5.4+ |
-| <? ?> | Short Tags | PHP Ini option - Default off |
-| <% %> | ASP Tags | PHP Ini option - Default off, Removed on PHP 7.0 |
+```php
+<?php ?> - Standard Tags, enabled by default
+<?= ?> - Echo Tags, Default PHP 5.4+
+<? ?> - Short Tags, PHP Ini option - Default off
+<% %> - ASP Tags, PHP Ini option - Default off, Removed on PHP 7.0
+```
 
 # Data Types
 Scalar Types:
