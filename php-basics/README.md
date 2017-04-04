@@ -453,4 +453,4 @@ while ($i <= 10) {
 ```
 
 # Namespaces
-This is better check files in [Namespaces section](php-zce-code-guide/php-basics/code/namespaces)
+This is better check files in [Namespaces section](code/namespaces)
