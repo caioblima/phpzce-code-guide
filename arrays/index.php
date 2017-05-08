@@ -270,6 +270,13 @@
 // for ($i = 0;  $i  < count($chocolate);  $i++) {
 //   print $chocolate[i];
 // }
+$someData = [
+  'userName' => 'caio',
+  'pass' => 'test',
+];
+
+list('userName' => $userName, 'pass' => $pass) = $someData;
+echo 'User: '. $userName . ' ' . 'Pass: '. $pass;
 // list($tipo, $tamanho, $preco) = $chocolate;
 // print $tipo .' '. $tamanho  .' '. $preco;
 // $computadores = [
@@ -287,16 +294,9 @@
 //   list($memoria,  $hd,  $processador) = $computadores[$i];
 //   print $memoria  .' - '. $hd .' - '. $processador;
 // }
-$array  = [
-  "1" =>  "A",  1 =>  "B", "C",  2 =>  "D"
-];
-print_r($array);exit;
-print count($array);
-
-
-
-
-
-
-
+// $array  = [
+//   "1" =>  "A",  1 =>  "B", "C",  2 =>  "D"
+// ];
+// print_r($array);exit;
+// print count($array);
 
