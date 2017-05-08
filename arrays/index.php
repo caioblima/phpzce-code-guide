@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 //http://php.net/manual/pt_BR/language.types.array.php
 //http://php.net/manual/en/array.sorting.php
 // $a = ['a', 'b'];
@@ -270,13 +271,15 @@
 // for ($i = 0;  $i  < count($chocolate);  $i++) {
 //   print $chocolate[i];
 // }
-$someData = [
-  'userName' => 'caio',
-  'pass' => 'test',
-];
+// $someData = [
+//   'userName' => 'caio',
+//   'pass' => 'test',
+// ];
 
-list('userName' => $userName, 'pass' => $pass) = $someData;
-echo 'User: '. $userName . ' ' . 'Pass: '. $pass;
+// list('userName' => $userName, 'pass' => $pass) = $someData;
+// //or shorthand syntax - Symmetric array destructuring 
+// ['userName' => $userName, 'pass' => $pass = $someData;
+// echo 'User: '. $userName . ' ' . 'Pass: '. $pass;
 // list($tipo, $tamanho, $preco) = $chocolate;
 // print $tipo .' '. $tamanho  .' '. $preco;
 // $computadores = [
@@ -300,3 +303,13 @@ echo 'User: '. $userName . ' ' . 'Pass: '. $pass;
 // print_r($array);exit;
 // print count($array);
 
+
+
+
+
+//off topic
+// function nullableValue($str): string {
+//   return $str;
+// }
+
+// print_r(nullableValue(1));
