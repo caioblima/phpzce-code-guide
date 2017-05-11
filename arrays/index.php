@@ -303,13 +303,21 @@ declare(strict_types=1);
 // print_r($array);exit;
 // print count($array);
 
-
-
-
-
 //off topic
 // function nullableValue($str): string {
 //   return $str;
 // }
 
 // print_r(nullableValue(1));
+
+$arr = [
+  'key1' => 'F1 - Ferrari',
+  'key2' => 0,
+  'key3' => 'F1 - Mercedes',
+  'key4' => 0,
+];
+// $arr = array_filter($arr);
+$arr = array_filter($arr, function($item) {
+  return (stripos(strval($item), 'f1') !== false); 
+});
+print_r($arr);
