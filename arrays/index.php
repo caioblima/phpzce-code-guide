@@ -309,7 +309,7 @@ declare(strict_types=1);
 // }
 
 // print_r(nullableValue(1));
-
+$input = 'f1';
 $arr = [
   'key1' => 'F1 - Ferrari',
   'key2' => 0,
@@ -317,7 +317,7 @@ $arr = [
   'key4' => 0,
 ];
 // $arr = array_filter($arr);
-$arr = array_filter($arr, function($item) {
-  return (stripos(strval($item), 'f1') !== false); 
+$arr = array_filter($arr, function($item) use ($input) {
+  return (stripos(strval($item), $input) !== false); 
 });
 print_r($arr);
