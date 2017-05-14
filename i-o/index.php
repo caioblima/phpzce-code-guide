@@ -3,6 +3,9 @@ declare(strict_types=1);
 //https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html
 //http://php.net/manual/pt_BR/function.fopen.php
 //http://php.net/manual/pt_BR/function.fclose.php
+//http://php.net/manual/en/book.sockets.php
+//http://php.net/manual/pt_BR/ref.filesystem.php
+//http://php.net/manual/pt_BR/class.splfileinfo.php
 // $file = fopen('./zce.txt', 'w+');
 // print_r($file);
 // fclose($file);
@@ -86,8 +89,68 @@ declare(strict_types=1);
 // $phar->stopBuffering();
 // echo  'Arquivo  salvo com sucesso';
 // print_r(file_get_contents('phar://./app.phar/TraitTest.php'));
-$phar = new \RecursiveTreeIterator(new RecursiveDirectoryIterator('phar://app.phar'));
-foreach ($phar as $file)  {
-  print_r($file);
-  echo PHP_EOL;
-}
+// $phar = new \RecursiveTreeIterator(new RecursiveDirectoryIterator('phar://app.phar'));
+// foreach ($phar as $file)  {
+//   print_r($file);
+//   echo PHP_EOL;
+// }
+
+//Further use
+// $file = file_get_contents('./src/MainClass.php');
+// $formatter = <<<CODE
+// ```php
+// $file
+// ```
+// CODE;
+// file_put_contents('./README.md', $formatter);
+
+// class ZcpeWrapper {
+//   const ZCE_BASE_DIR = __DIR__;
+//   static $uriData = [];
+//   private $file;
+//   private $filePath;
+//   public function stream_open($uri, $mode)
+//   {
+//     static::$uriData = parse_url($uri);
+//     $this->filePath = static::ZCE_BASE_DIR . '/' .  static::$uriData['host'];
+//     if (!file_exists($this->filePath)) {
+//       throw new \Exception('The informe file does not exists!');
+//     }
+//     $this->file = fopen($this->filePath, $this->getMode(static::$uriData['fragment']));
+//     return true;
+//   }
+//   private function getMode(&$uriFragment)
+//   {
+//     return preg_replace('/^mode\=/', '', $uriFragment);
+//   }
+//   public function getFileStat()
+//   {
+//     return stat($this->filePath);
+//   }
+//   public function stream_read($bytes)
+//   {
+//     return fread($this->file,  $bytes);
+//   }
+//   public function stream_eof()
+//   {
+//     return feof($this->file);
+//   }
+//   public function stream_stat()
+//   {
+//     return $this->getFileStat();
+//   }
+//   public function url_stat($path, $flags)
+//   {
+//     if (preg_match('/^zcpe\:\/\//', $path)) {
+//       return is_readable($this->filePath); 
+//     }
+//     return false;
+//   }
+// }
+// stream_register_wrapper('zcpe', 'ZcpeWrapper');
+// print file_get_contents('zcpe://zce2.txt#mode=r+');
+$filters  = stream_get_filters();
+print_r($filters);
+$fp = fopen('./zce.txt',  'r');
+stream_filter_append($fp, 'string.toupper');
+print fread($fp,  1024);
