@@ -121,7 +121,7 @@ declare(strict_types=1);
 //   }
 //   private function getMode(&$uriFragment)
 //   {
-//     return preg_replace('/^mode\=/', '', $uriFragment);
+//     return $uriFragment = preg_replace('/^mode\=/', '', $uriFragment);
 //   }
 //   public function getFileStat()
 //   {

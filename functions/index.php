@@ -15,11 +15,23 @@ declare(strict_types=1);
 //   return $a + $b;
 // }
 // $sumSomeValues = sumValues(2, 4);
-$f1Teams = [];
-function ourArrayPush(array &$array, $data) {
-  if ($data !== null) {
-    $array[] = $data;
+// $f1Teams = [];
+// function ourArrayPush(array &$array, $data) {
+//   if ($data !== null) {
+//     $array[] = $data;
+//   }
+// }
+// print_r(ourArrayPush($f1Teams, 'Ferrari'));
+// print_r($f1Teams);
+
+class House {
+  private $light = 'on';
+  public function &returnbyReference() {
+    return $this->light;
   }
 }
-print_r(ourArrayPush($f1Teams, 'Ferrari'));
-print_r($f1Teams);
+$house = new House();
+$light = &$house->returnbyReference();
+print $light;
+$light = 'off';
+print $house->returnbyReference();
