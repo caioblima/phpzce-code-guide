@@ -100,7 +100,9 @@ declare(strict_types=1);
 // exit;
 
 class Overloading {
+  private $strProperty = 'You are using overload echo to show some data like this property';
   private $testPropData = [];
+
   public function __call($method, array $args)
   {
     echo 'Method: ' . $method . ' invoked' . PHP_EOL;
@@ -109,10 +111,12 @@ class Overloading {
     }
   }
 
-  public function __get($propName)  {
+  public function __get($propName) 
+  {
     print_r('Trying to get non-existent or non-accessible property ' . $propName . PHP_EOL);
     print_r($this->{$propName});
   }
+
   public function __set($propName, $value)
   {
     if (!property_exists($this, $propName)) {
@@ -120,6 +124,11 @@ class Overloading {
       
     }
     $this->{$propName} = $value;
+  }
+
+  public function __toString()
+  {
+    return 'Class Name: '. get_class($this) . ' ' . $this->strProperty;
   }
 
   public function __isset($propName)
@@ -137,20 +146,32 @@ class Overloading {
     return array_keys(get_object_vars($this));
   }
 
-  public function __sleep()
+  public function __wakeup()
   {
-    return array_keys(get_object_vars($this));
+    //Do something;
+    print_r('Method wakeup called after an unserialize');
   }
 }
 
 $overloading = new Overloading();
-$overloading->testMethod(['test1', 'test2', 'test3']);
-$overloading->testPropData = ['someData'];
+// __call
+// $overloading->testMethod(['test1', 'test2', 'test3']);
+
+// __set and __get
+// $overloading->testPropData = ['someData'];
 // print_r($overloading->testPropData);
+
+// __isset
 // $exists = isset($overloading->testPropData);
 // var_dump($exists);
+
+// __unset
 // unset($overloading->testPropData);
 // var_dump($overloading->testPropData);
-$serializedObject = serialize($overloading);
-print_r($serializedObject);exit;
 
+// __sleep and __wakeup
+// $serializedObject = serialize($overloading);
+// $unserializedObject = unserialize($serializedObject);
+
+// __toString
+echo $overloading;
