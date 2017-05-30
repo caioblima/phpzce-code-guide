@@ -4,6 +4,7 @@ declare(strict_types=1);
 //http://php.net/manual/pt_BR/language.oop5.traits.php
 //http://php.net/manual/pt_BR/language.oop5.visibility.php
 //http://php.net/manual/en/language.oop5.overloading.php#object.set
+//http://php.net/manual/en/language.oop5.magic.php
 // class Car
 // {
 //   const TYRE_SUPPLIER = 'Pirelli';
@@ -61,24 +62,95 @@ declare(strict_types=1);
 // $request = $json->request();
 // $response = $request->response();
 
-trait LogTrait {
-  public function write($message)
+// trait LogTrait {
+//   public function write($message)
+//   {
+//     return file_put_contents('log.txt', $message . PHP_EOL, FILE_APPEND);
+//   }
+
+//   public abstract function getLog();
+// }
+
+// class Logger
+// {
+//   use LogTrait;
+//   public function getLog()
+//   {
+//     return file_get_contents('log.txt');
+//   }
+// }
+
+// $logger = new Logger();
+// $logger->write('ZCE OOP!');
+// echo $logger->getLog();
+
+// class Livro {
+//   public function __construct()
+//   {
+//     echo 'Objeto Livro criado' . PHP_EOL;
+//   }
+//   public function __destruct()
+//   {
+//     echo 'Objeto Livro destruído' . PHP_EOL;
+//   }
+// }
+// $livro = new Livro();
+//or
+// unset($livro);
+// exit;
+
+class Overloading {
+  private $testPropData = [];
+  public function __call($method, array $args)
   {
-    return file_put_contents('log.txt', $message . PHP_EOL, FILE_APPEND);
+    echo 'Method: ' . $method . ' invoked' . PHP_EOL;
+    foreach ($args as $params) {
+      print_r($params);
+    }
   }
 
-  public abstract function getLog();
-}
-
-class Logger
-{
-  use LogTrait;
-  public function getLog()
+  public function __get($propName)  {
+    print_r('Trying to get non-existent or non-accessible property ' . $propName . PHP_EOL);
+    print_r($this->{$propName});
+  }
+  public function __set($propName, $value)
   {
-    return file_get_contents('log.txt');
+    if (!property_exists($this, $propName)) {
+      throw new Exception("Error cannot overload property that doesn't exists!", 1);
+      
+    }
+    $this->{$propName} = $value;
+  }
+
+  public function __isset($propName)
+  {
+    return isset($this->{$propName});
+  }
+
+  public function __unset($propName)
+  {
+    return $this->{$propName} = null;
+  }
+  //Pass an indexed array with all properties you want to serialize
+  public function __sleep()
+  {
+    return array_keys(get_object_vars($this));
+  }
+
+  public function __sleep()
+  {
+    return array_keys(get_object_vars($this));
   }
 }
 
-$logger = new Logger();
-$logger->write('ZCE OOP!');
-echo $logger->getLog();
+$overloading = new Overloading();
+$overloading->testMethod(['test1', 'test2', 'test3']);
+$overloading->testPropData = ['someData'];
+// print_r($overloading->testPropData);
+// $exists = isset($overloading->testPropData);
+// var_dump($exists);
+// unset($overloading->testPropData);
+// var_dump($overloading->testPropData);
+$serializedObject = serialize($overloading);
+print_r($serializedObject);exit;
+
