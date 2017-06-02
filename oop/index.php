@@ -5,6 +5,9 @@ declare(strict_types=1);
 //http://php.net/manual/pt_BR/language.oop5.visibility.php
 //http://php.net/manual/en/language.oop5.overloading.php#object.set
 //http://php.net/manual/en/language.oop5.magic.php
+//http://php.net/manual/pt_BR/language.exceptions.extending.php
+//http://php.net/manual/en/language.exceptions.php
+//http://php.net/manual/en/spl.exceptions.php
 // class Car
 // {
 //   const TYRE_SUPPLIER = 'Pirelli';
@@ -99,61 +102,88 @@ declare(strict_types=1);
 // unset($livro);
 // exit;
 
-class Overloading {
-  private $strProperty = 'You are using overload echo to show some data like this property';
-  private $testPropData = [];
+// Overloading
+// class Overloading {
+//   private $strProperty = 'You are using overload echo to show some data like this property';
+//   private $testPropData = [];
+//   private $data1 = '';
+//   private $data2 = '';
+//   public $subObj;
 
-  public function __call($method, array $args)
-  {
-    echo 'Method: ' . $method . ' invoked' . PHP_EOL;
-    foreach ($args as $params) {
-      print_r($params);
-    }
-  }
+//   public function __construct()
+//   {
+//     $this->subObj = new SubObj();
+//   }
 
-  public function __get($propName) 
-  {
-    print_r('Trying to get non-existent or non-accessible property ' . $propName . PHP_EOL);
-    print_r($this->{$propName});
-  }
+//   public function __call($method, array $args)
+//   {
+//     echo 'Method: ' . $method . ' invoked' . PHP_EOL;
+//     foreach ($args as $params) {
+//       print_r($params);
+//     }
+//   }
 
-  public function __set($propName, $value)
-  {
-    if (!property_exists($this, $propName)) {
-      throw new Exception("Error cannot overload property that doesn't exists!", 1);
+//   public function __get($propName) 
+//   {
+//     print_r('Trying to get non-existent or non-accessible property ' . $propName . PHP_EOL);
+//     // print_r($this->{$propName});
+//     return $this->{$propName};
+//   }
+
+//   public function __set($propName, $value)
+//   {
+//     if (!property_exists($this, $propName)) {
+//       throw new Exception("Error cannot overload property that doesn't exists!", 1);
       
-    }
-    $this->{$propName} = $value;
-  }
+//     }
+//     $this->{$propName} = $value;
+//   }
 
-  public function __toString()
-  {
-    return 'Class Name: '. get_class($this) . ' ' . $this->strProperty;
-  }
+//   public function __toString()
+//   {
+//     return 'Class Name: '. __CLASS__ . ' ' . $this->strProperty;
+//   }
 
-  public function __isset($propName)
-  {
-    return isset($this->{$propName});
-  }
+//   public function __isset($propName)
+//   {
+//     return isset($this->{$propName});
+//   }
 
-  public function __unset($propName)
-  {
-    return $this->{$propName} = null;
-  }
-  //Pass an indexed array with all properties you want to serialize
-  public function __sleep()
-  {
-    return array_keys(get_object_vars($this));
-  }
+//   public function __unset($propName)
+//   {
+//     return $this->{$propName} = null;
+//   }
+//   //Pass an indexed array with all properties you want to serialize
+//   public function __sleep()
+//   {
+//     return array_keys(get_object_vars($this));
+//   }
 
-  public function __wakeup()
-  {
-    //Do something;
-    print_r('Method wakeup called after an unserialize');
-  }
-}
+//   public function __wakeup()
+//   {
+//     //Do something;
+//     print_r('Method wakeup called after an unserialize');
+//   }
 
-$overloading = new Overloading();
+//   public function __invoke(array $propValues)
+//   {
+//     foreach ($propValues as $fieldName => $fieldValue) {
+//       $this->{$fieldName} = $fieldValue;
+//     }
+//   }
+
+//   public function __clone()
+//   {
+//     $this->subObj = clone $this->subObj;
+//   }
+// }
+// class SubObj 
+// {
+//   public $variable = null;
+// }
+
+// $overloading = new Overloading();
+// $overloading->subObj->variable = 'Overloading Class';
 // __call
 // $overloading->testMethod(['test1', 'test2', 'test3']);
 
@@ -174,4 +204,47 @@ $overloading = new Overloading();
 // $unserializedObject = unserialize($serializedObject);
 
 // __toString
-echo $overloading;
+// echo $overloading;
+
+//__invoke()
+// $invokeData = [
+//   'data1' => 'Some data 1',
+//   'data2' => 'Some data 2',
+// ];
+// $overloading($invokeData);
+// print_r($overloading->data1);
+// echo PHP_EOL;
+// print_r($overloading->data2);
+
+//__clone
+// $overloading2 = clone $overloading;
+// $overloading2->subObj->variable = 'Cloned Overloading Class';
+// print_r($overloading);
+
+//Exceptions
+function higherNumber($firstNumber = 0, $secondNumber = 0)  {
+  if  ($firstNumber > $secondNumber){
+    throw new Exception(
+      'The first is higher than the second'
+    );
+  }
+  if  ($firstNumber  === $secondNumber){
+    throw new InvalidArgumentException(
+      'The numbers are equal!'
+    );
+  }
+  return true;
+}
+
+try {
+  higherNumber(2, 1);
+} catch (InvalidArgumentException $e) {
+  print_r('Invalid argument ' . $e->getMessage());
+  echo PHP_EOL;
+} catch (Exception $e) {
+  print_r('Generic exception ' . $e->getMessage());
+  echo PHP_EOL;
+} finally {
+  print_r('Always execute by default!');
+  echo PHP_EOL;
+}
