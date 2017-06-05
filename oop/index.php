@@ -245,6 +245,6 @@ try {
   print_r('Generic exception ' . $e->getMessage());
   echo PHP_EOL;
 } finally {
-  print_r('Always execute by default!');
+  print_r('Finally block always execute by default!');
   echo PHP_EOL;
 }
