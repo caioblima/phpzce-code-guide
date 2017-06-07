@@ -1,13 +1,16 @@
 <?php
 declare(strict_types=1);
-//http://php.net/manual/pt_BR/language.oop5.php
-//http://php.net/manual/pt_BR/language.oop5.traits.php
-//http://php.net/manual/pt_BR/language.oop5.visibility.php
-//http://php.net/manual/en/language.oop5.overloading.php#object.set
-//http://php.net/manual/en/language.oop5.magic.php
-//http://php.net/manual/pt_BR/language.exceptions.extending.php
-//http://php.net/manual/en/language.exceptions.php
-//http://php.net/manual/en/spl.exceptions.php
+// http://php.net/manual/pt_BR/language.oop5.php
+// http://php.net/manual/pt_BR/language.oop5.traits.php
+// http://php.net/manual/pt_BR/language.oop5.visibility.php
+// http://php.net/manual/en/language.oop5.overloading.php#object.set
+// http://php.net/manual/en/language.oop5.magic.php
+// http://php.net/manual/pt_BR/language.exceptions.extending.php
+// http://php.net/manual/en/language.exceptions.php
+// http://php.net/manual/en/spl.exceptions.php
+// http://php.net/manual/pt_BR/language.oop5.late-static-bindings.php
+// http://php.net/manual/en/function.class-alias.php
+// http://php.net/manual/pt_BR/book.spl.php 
 // class Car
 // {
 //   const TYRE_SUPPLIER = 'Pirelli';
@@ -222,29 +225,55 @@ declare(strict_types=1);
 // print_r($overloading);
 
 //Exceptions
-function higherNumber($firstNumber = 0, $secondNumber = 0)  {
-  if  ($firstNumber > $secondNumber){
-    throw new Exception(
-      'The first is higher than the second'
-    );
+// function higherNumber($firstNumber = 0, $secondNumber = 0)  {
+//   if  ($firstNumber > $secondNumber) {
+//     throw new Exception(
+//       'The first is higher than the second'
+//     );
+//   }
+//   if  ($firstNumber === $secondNumber) {
+//     throw new InvalidArgumentException(
+//       'The numbers are equal!'
+//     );
+//   }
+//   return true;
+// }
+
+// try {
+//   higherNumber(1, 1);
+// } catch (InvalidArgumentException $e) {
+//   print_r('Invalid argument ' . $e->getMessage());
+//   echo PHP_EOL;
+// } catch (Exception $e) {
+//   print_r('Generic exception ' . $e->getMessage());
+//   echo PHP_EOL;
+// } finally {
+//   print_r('Finally block always execute by default!');
+//   echo PHP_EOL;
+// }
+
+class A 
+{
+  public static function who()
+  {
+    echo __CLASS__;
   }
-  if  ($firstNumber  === $secondNumber){
-    throw new InvalidArgumentException(
-      'The numbers are equal!'
-    );
+
+  public static function call()
+  {
+    //output A
+    // self::who(); 
+    //output B
+    static::who();
   }
-  return true;
 }
 
-try {
-  higherNumber(2, 1);
-} catch (InvalidArgumentException $e) {
-  print_r('Invalid argument ' . $e->getMessage());
-  echo PHP_EOL;
-} catch (Exception $e) {
-  print_r('Generic exception ' . $e->getMessage());
-  echo PHP_EOL;
-} finally {
-  print_r('Finally block always execute by default!');
-  echo PHP_EOL;
+class B extends A
+{
+  public static function who()
+  {
+    echo __CLASS__;
+  }
 }
+
+B::call();
