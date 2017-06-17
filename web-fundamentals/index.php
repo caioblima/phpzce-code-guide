@@ -2,6 +2,7 @@
 declare(strict_types=1);
 //http://php.net/manual/en/function.session-start.php
 //http://php.net/manual/en/book.session.php
+// http://php.net/manual/en/ref.session.php
 
 session_start();
 
