@@ -5,7 +5,7 @@ declare(strict_types=1);
 // http://php.net/manual/pt_BR/pdostatement.fetch.php
 // http://php.net/manual/pt_BR/pdostatement.execute.php
 //http://php.net/manual/pt_BR/class.pdo.php
-$pdo = new PDO('mysql:dbname=zce;host=10.0.17.5', 'root', '');
+$pdo = new PDO('mysql:dbname=zce;host=10.0.17.5', 'root', 'macabro656');
 $pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
 // print_r($pdo);
 // http://php.net/manual/pt_BR/pdo.drivers.php
@@ -53,7 +53,9 @@ $pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
 // $query = $pdo->prepare("SELECT * FROM usuarios WHERE nome = :nome");
 // $query->execute([':nome' => 'PHP']);
 // Or
-// $query->bindParam(':nome', 'PHP', PDO::PARAM_STR);
+// $php = 'PHP';
+// $query->bindParam(':nome', $php, PDO::PARAM_STR);
+// $query->execute();
 // print_r($query->fetchAll(PDO::FETCH_ASSOC));exit;
 
 //Data manipulation - PDO::FETCH*
