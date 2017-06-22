@@ -16,6 +16,7 @@ declare(strict_types=1);
 // https://secure.php.net/manual/pt_BR/book.filter.php
 // http://php.net/manual/en/filter.constants.php
 // http://php.net/manual/en/function.random-bytes.php
+// https://www.owasp.org/index.php/Main_Page
 // PHP INI confs
 // allow_url_fopen = Off
 // allow_url_include = Off
@@ -70,4 +71,4 @@ declare(strict_types=1);
 // sha1
 // password_*
 
-print CRYPT_SALT_LENGTH;
+// print CRYPT_SALT_LENGTH;
