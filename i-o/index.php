@@ -65,17 +65,18 @@ declare(strict_types=1);
 // print base64_decode($userInputData);
 // print file_get_contents('data://text/plain;base64,VXRpbGl6YW5kbyBzdHJlYW1zIGVtIFBIUCAh');
 
-// $directory = new RecursiveDirectoryIterator('./');
+$directory = new FilesystemIterator('../php-basics/code');
 // foreach ($directory as $value) {
 //   print_r($value);
 // }
 // print_r($directory);exit;
 // $iterator = new RecursiveIteratorIterator($directory);
-// $files = new RegexIterator($iterator, '/^.+\.php/', RecursiveRegexIterator::GET_MATCH);
-// foreach ($files->getInnerIterator() as $file) {
-//   print_r($file->getFileName()); 
-//   echo PHP_EOL;
-// }
+$files = new RegexIterator($directory, '/^.+\.php/');
+// print_r(get_class_methods(get_class($files)));exit;
+foreach ($files as $file) {
+  print_r($file->getFilename()); 
+  echo PHP_EOL;
+}
 //RecursiveDirectoryIterator
 // $directory  = new \RecursiveDirectoryIterator('glob://./*.txt');
 // foreach ($directory as $file) {
@@ -149,8 +150,8 @@ declare(strict_types=1);
 // }
 // stream_register_wrapper('zcpe', 'ZcpeWrapper');
 // print file_get_contents('zcpe://zce2.txt#mode=r+');
-$filters  = stream_get_filters();
-print_r($filters);
-$fp = fopen('./zce.txt',  'r');
-stream_filter_append($fp, 'string.toupper');
-print fread($fp,  1024);
+// $filters  = stream_get_filters();
+// print_r($filters);
+// $fp = fopen('./zce.txt',  'r');
+// stream_filter_append($fp, 'string.toupper');
+// print fread($fp,  1024);

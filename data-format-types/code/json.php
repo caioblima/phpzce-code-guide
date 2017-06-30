@@ -1,6 +1,7 @@
 <?php
 //json_encode - http://php.net/manual/en/function.json-encode.php
 //json_decode - http://php.net/manual/en/function.json-decode.php
+// http://php.net/manual/en/json.constants.php
 class test {
   public $a = 1;
   public $b = 2;

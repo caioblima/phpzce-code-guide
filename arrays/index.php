@@ -309,15 +309,27 @@ declare(strict_types=1);
 // }
 
 // print_r(nullableValue(1));
-$input = 'f1';
-$arr = [
-  'key1' => 'F1 - Ferrari',
-  'key2' => 0,
-  'key3' => 'F1 - Mercedes',
-  'key4' => 0,
+// $input = 'f1';
+// $arr = [
+//   'key1' => 'F1 - Ferrari',
+//   'key2' => 0,
+//   'key3' => 'F1 - Mercedes',
+//   'key4' => 0,
+// ];
+// // $arr = array_filter($arr);
+// $arr = array_filter($arr, function($item) use ($input) {
+//   return (stripos(strval($item), $input) !== false); 
+// });
+// print_r($arr);
+$array = [
+	'1' => 'one',
+	'2' => 'two',
+	'3' => 'three'
 ];
-// $arr = array_filter($arr);
-$arr = array_filter($arr, function($item) use ($input) {
-  return (stripos(strval($item), $input) !== false); 
-});
-print_r($arr);
+
+$arrayObject = new ArrayObject($array);
+$arrayObject->offsetUnset(3);
+
+foreach ($arrayObject as $key => $value) {
+	print_r($value);
+}
