@@ -82,13 +82,14 @@
 // print_r($a);
 // $str = '12345';
 // print_r(sscanf($str, '%1d%1d%1d%1d%1d'));
-// $directory = new FilesystemIterator('./phpzce-code-guide/strings-patterns/code');
-// $files = new RegexIterator($directory, '/^.+\.php/');
+$directory = new FilesystemIterator(__DIR__ . '/i-o/src');
+$files = new RegexIterator($directory, '/^.+\.php/');
 // print_r(get_class_methods(get_class($files)));exit;
-// foreach ($files as $file) {
-//   print_r($file->getFilename()); 
-//   echo PHP_EOL;
-// }
+foreach ($files as $file) {
+  print_r(file_get_contents(__DIR__ . '/i-o/src/' . $file->getFilename()));
+  exit();
+  echo PHP_EOL;
+}
 // $filePointer = fopen('./zce.txt', 'r');
 // // fwrite($filePointer, 'Studing for ZCE!');
 // header('Content-Type: text/html;');
@@ -376,7 +377,7 @@
 // echo $$$first;
 // echo '1' . (print '2') + 3;
 
-echo "1" + 2 * '0x02';
+// echo "1" + 2 * '0x02';
 
 // $date1 = new DateTime('2014-02-03');
 // $date2 = new DateTime('2014-03-02');
