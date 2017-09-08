@@ -321,15 +321,15 @@ declare(strict_types=1);
 //   return (stripos(strval($item), $input) !== false); 
 // });
 // print_r($arr);
-$array = [
-	'1' => 'one',
-	'2' => 'two',
-	'3' => 'three'
-];
+// $array = [
+// 	'1' => 'one',
+// 	'2' => 'two',
+// 	'3' => 'three'
+// ];
 
-$arrayObject = new ArrayObject($array);
-$arrayObject->offsetUnset(3);
+// $arrayObject = new ArrayObject($array);
+// $arrayObject->offsetUnset(3);
 
-foreach ($arrayObject as $key => $value) {
-	print_r($value);
-}
+// foreach ($arrayObject as $key => $value) {
+// 	print_r($value);
+// }
