@@ -1,7 +1,6 @@
 <?php
-//simplexml_import_dom - simplexml_import_dom — Get a SimpleXMLElement object from a DOM node
 $no = new DOMDocument();
-$meuXml = <<<XMLDATA
+$myXML = <<<XMLDATA
 <zce>
   <basic>
       <code>
@@ -10,6 +9,6 @@ $meuXml = <<<XMLDATA
   </basic>
 </zce>
 XMLDATA;
-$no->loadXML($meuXml);
+$no->loadXML($myXML);
 $convertedToSimpleXML = simplexml_import_dom($no);
 print_r($convertedToSimpleXML);exit;

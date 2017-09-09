@@ -1,5 +1,4 @@
 <?php
-//dom_import_simplexml — Gets a DOMElement object from a SimpleXMLElement object
 $myXML = <<<XMLDATA
 <zce>
   <basic>
@@ -11,4 +10,4 @@ $myXML = <<<XMLDATA
 XMLDATA;
 $simpleXMLElement = new SimpleXMLElement($myXML);
 $docElement = dom_import_simplexml($simpleXMLElement);
-print_r($docElement);exit;
+print_r($docElement);
