@@ -2,6 +2,8 @@
 
 This section covers Array functionality on PHP
 
+# Code Examples
+[Here](code)
 
 # PHP Official Documentation
 
