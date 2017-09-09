@@ -5,7 +5,7 @@ declare(strict_types=1);
 // http://php.net/manual/pt_BR/pdostatement.fetch.php
 // http://php.net/manual/pt_BR/pdostatement.execute.php
 //http://php.net/manual/pt_BR/class.pdo.php
-$pdo = new PDO('mysql:dbname=zce;host=10.0.17.5', 'root', 'macabro656');
+$pdo = new PDO('mysql:dbname=zce;host=yourHost', 'root', 'yourPass');
 $pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
 // print_r($pdo);
 // http://php.net/manual/pt_BR/pdo.drivers.php
