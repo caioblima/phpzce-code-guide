@@ -1,6 +1,5 @@
 
 <?php
-//str_replace - mixed str_replace ( mixed $search , mixed $replace , mixed $subject [, int &$count ] )
 $text = "Studing javascript Certification Engineer";
 $text = str_replace('javascript', 'Zend PHP', $text);
 print $text;

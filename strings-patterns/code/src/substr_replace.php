@@ -1,5 +1,5 @@
 <?php
-//substr_replace
 $var = 'ABCDEFGH:/MNRPQR/';
 echo "Original: $var<hr />\n"; 
-echo substr_replace($var, 'Caio', -7, -1);
+echo PHP_EOL;
+echo substr_replace($var, 'New Value', -7, -1);
