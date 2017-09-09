@@ -5,9 +5,10 @@ What is the purpose of this guide? When you're studing for the certification, th
 
 # Version Covered
 
-**PHP 7** 
+**PHP 7.0+** 
 
 # Which topics do we have today? 
 * [PHP Basics](php-basics)
+* [Arrays](arrays)
 * [Strings & Patterns](strings-patterns)
 * [Data Format & Types](data-format-types)
