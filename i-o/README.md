@@ -1,17 +1,15 @@
-```php
-<?php
-require_once './TraitTest.php';
-class MainClass {
-  use TraitTest;
+# Input / Output
 
-  private function __construct($data)
-  {
-    $this->setData($data);
-  }
+This section covers Array functionality on IO
 
-  public static function getInstance($data)
-  {
-    if (!empty($data)) return new static($data);
-  }
-}
-```
+# Code Examples
+[Here](code)
+
+# PHP Official Documentation
+
+* https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html
+* http://php.net/manual/pt_BR/function.fopen.php
+* http://php.net/manual/pt_BR/function.fclose.php
+* http://php.net/manual/en/book.sockets.php
+* http://php.net/manual/pt_BR/ref.filesystem.php
+* http://php.net/manual/pt_BR/class.splfileinfo.php

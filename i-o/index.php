@@ -1,11 +1,5 @@
 <?php
 declare(strict_types=1);
-//https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html
-//http://php.net/manual/pt_BR/function.fopen.php
-//http://php.net/manual/pt_BR/function.fclose.php
-//http://php.net/manual/en/book.sockets.php
-//http://php.net/manual/pt_BR/ref.filesystem.php
-//http://php.net/manual/pt_BR/class.splfileinfo.php
 // $file = fopen('./zce.txt', 'w+');
 // print_r($file);
 // fclose($file);
@@ -27,25 +21,24 @@ declare(strict_types=1);
 //   print_r(file_get_contents($file_path));
 // } 
 //stream contexts
-// $options = [
-//   'ftp' => [
-//     'proxy' =>  'ftp://proxy:3128'
-//   ],
-// ];
-// $params = [];
-// $context = stream_context_create($options,  $params);
-// print(file_get_contents('ftp://speedtest.tele2.net/',  false,  $context));
-// exit;
-// print_r(file_get_contents('./zce.txt'));
-// $contexto = stream_context_create([
-//       'http' => [
-//       'method' => 'POST',
-//       'header' => 'Content-Type:  application/x-www-form-urlencoded',
-//       'content' => 'livro=php',
-//     ],
-//   ]
-// );
-// print file_get_contents('http://marabesi.com',  false,  $contexto);
+$options = [
+  'ftp' => [
+    'proxy' =>  'ftp://proxy:3128'
+  ],
+];
+$params = [];
+$context = stream_context_create($options,  $params);
+print(file_get_contents('ftp://speedtest.tele2.net/',  false,  $context));
+exit;
+print_r(file_get_contents('./zce.txt'));
+$context = stream_context_create([
+      'http' => [
+      'method' => 'GET',
+      'header' => 'Content-Type:  text/html',
+    ],
+  ]
+);
+print file_get_contents('http://www.google.com',  false,  $context);
 
 // $put  = fopen('php://input',  'r');
 // print fgets($put);
