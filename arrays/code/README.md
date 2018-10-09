@@ -78,7 +78,7 @@ $b  = [
     5,
 ];
 
-$diff = array_diff_ukey($a, $b, function($aKey,  $bKey) 
+$diff = array_diff_ukey($a, $b, function($aKey,  $bKey)
 {
     if ($aKey === $bKey) {
         return 0;
@@ -106,7 +106,7 @@ $filter1 = array_filter($arr);
 var_dump($filter1);
 
 $filter2 = array_filter($arr, function ($item) use ($input) {
-    return (stripos(strval($item), $input) !== false); 
+    return (stripos(strval($item), $input) !== false);
 });
 var_dump($filter2);
 ```
@@ -121,6 +121,27 @@ $computer = [
 if  (array_key_exists('componentes',  $computer))  {
     print 'The key exists!';
 }
+```
+
+# array_key_first
+```php
+<?php
+// Note: Only available in PHP >= 7.3.0
+$array = ['k' => 2, 'z' => 1, 'b' => 2, 'c' => 3];
+
+$firstKey = array_key_first($array);
+print_r($firstKey); // Will output 'k'
+```
+
+# array_key_last
+```php
+<?php
+// Note: Only available in PHP >= 7.3.0
+$array = ['k' => 2, 'z' => 1, 'b' => 2, 'c' => 3];
+
+$lastKey = array_key_last($array);
+print_r($lastKey); // Will output 'c'
+
 ```
 
 # array_merge:
@@ -298,7 +319,7 @@ foreach ($numGenerator() as $num) {
     if ($num === 0) {
         continue;
     }
-    
+
     echo $num . ' ';
 }
 
@@ -379,7 +400,7 @@ $someData = [
 ];
 
 list('userName' => $userName, 'pass' => $pass) = $someData;
-//or shorthand syntax - Symmetric array destructuring 
+//or shorthand syntax - Symmetric array destructuring
 ['userName' => $userName, 'pass' => $pass] = $someData;
 
 echo 'User: '. $userName . ' ' . 'Pass: '. $pass;
@@ -399,7 +420,7 @@ echo $type .' '. $size  .' '. $price;
 $images  = [
     'img12.png',
     'img10.png',
-    'img2.png', 
+    'img2.png',
     'img1.png'
 ];
 natsort($images);

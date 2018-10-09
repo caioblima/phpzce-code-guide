@@ -46,7 +46,7 @@ declare(strict_types=1);
 // $strings  = [
 //   'PHP',
 //   'abc',
-//   'Olá' 
+//   'Olá'
 // ];
 // sort($strings,  SORT_STRING);
 // print_r($strings);
@@ -96,7 +96,7 @@ declare(strict_types=1);
 // $imagens  = [
 //   'img12.png',
 //   'img10.png',
-//   'img2.png', 
+//   'img2.png',
 //   'img1.png'
 // ];
 // natsort($imagens);
@@ -209,7 +209,7 @@ declare(strict_types=1);
 //   'a' =>  'nada',
 //   5,
 // ];
-// $diferenca  = array_diff_ukey($a, $b, function($a_chave,  $b_chave) 
+// $diferenca  = array_diff_ukey($a, $b, function($a_chave,  $b_chave)
 // {
 //   if ($a_chave === $b_chave) {
 //       return 0;
@@ -259,9 +259,9 @@ declare(strict_types=1);
 // function  linhasDoArquivo($arquivo) {
 //   $arquivo  = fopen($arquivo, 'r');
 //   while (($linhaDoArquivo = fgets($arquivo))  !== false)  {
-//     yield $linhaDoArquivo;  
+//     yield $linhaDoArquivo;
 //   }
-//   fclose($arquivo); 
+//   fclose($arquivo);
 // }
 // $chocolate  = [
 //   'branco',
@@ -277,7 +277,7 @@ declare(strict_types=1);
 // ];
 
 // list('userName' => $userName, 'pass' => $pass) = $someData;
-// //or shorthand syntax - Symmetric array destructuring 
+// //or shorthand syntax - Symmetric array destructuring
 // ['userName' => $userName, 'pass' => $pass = $someData;
 // echo 'User: '. $userName . ' ' . 'Pass: '. $pass;
 // list($tipo, $tamanho, $preco) = $chocolate;
@@ -318,7 +318,7 @@ declare(strict_types=1);
 // ];
 // // $arr = array_filter($arr);
 // $arr = array_filter($arr, function($item) use ($input) {
-//   return (stripos(strval($item), $input) !== false); 
+//   return (stripos(strval($item), $input) !== false);
 // });
 // print_r($arr);
 // $array = [
@@ -333,3 +333,9 @@ declare(strict_types=1);
 // foreach ($arrayObject as $key => $value) {
 // 	print_r($value);
 // }
+
+// $array = ['k' => 2, 'z' => 1, 'b' => 2, 'c' => 3];
+// $firstKey = array_key_first($array);
+// print_r($firstKey); // Will output 'k'
+// $lastKey = array_key_last($array);
+// print_r($lastKey); // Will output 'c'
